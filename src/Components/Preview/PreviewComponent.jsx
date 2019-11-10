@@ -9,8 +9,8 @@ export default function PreviewComponent({items, title}) {
    <div className="preview">
    {items.filter(
      (item, index) => index < 4)
-      .map(({id, ...otherCollectionProps}) => 
-      {return(<CollectionComponent key={id} {...otherCollectionProps}/>)})
+      .map((menu) => 
+      {return(<CollectionComponent key={menu.id} menu={menu}/>)})
    }
     </div>
   </div>

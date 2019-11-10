@@ -1,7 +1,9 @@
 import  toggleCartHidden from "./CartToggleType";
+import addItemsToCart from "./cartUtils";
 
 const INITAIAL_STATE = {
- hidden: true
+ hidden: true,
+ collections: []
 }
 
 function cartReducer (state= INITAIAL_STATE, actions) {
@@ -11,9 +13,14 @@ function cartReducer (state= INITAIAL_STATE, actions) {
     ...state,
     hidden: !state.hidden
    }
-  default:
-   return state
- }
+  
+  case toggleCartHidden.ADD_ITEM:
+    return{
+      ...state,
+      collections: addItemsToCart(state.collections, actions.payload)}
+    default:
+    return state
+  }
 }
 
 export default cartReducer;
