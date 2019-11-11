@@ -4,6 +4,7 @@ import CustomButton from "../CustomButton/CustomButtonComponent"
 import {addItem} from "../../Redux/CartToggle/CartToggleAction" 
 import {connect} from "react-redux"
 
+
 function CollectionComponent({menu, addItems}) {
   const {id, name, imageUrl, price} = menu;
  return (

@@ -16,8 +16,8 @@ function cartReducer (state= INITAIAL_STATE, actions) {
   
   case toggleCartHidden.ADD_ITEM:
     return{
-      ...state,
-      collections: addItemsToCart(state.collections, actions.payload)}
+    ...state,
+    collections: addItemsToCart(state.collections, actions.payload)}
     default:
     return state
   }

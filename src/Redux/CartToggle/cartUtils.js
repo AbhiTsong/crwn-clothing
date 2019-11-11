@@ -1,17 +1,15 @@
-const addItemsToCart = (origialCartArray, payloadCartItem) => {
-  const newItemId = origialCartArray.find(
-    origialArray => origialArray.id === payloadCartItem.id    
+ const addItemsToCart = (originalCartArray, payloadCartItem) => {
+  const originalArrayId = originalCartArray.find(
+    originalArray => {return(originalArray.id === payloadCartItem.id)}
   )
-
-  if(newItemId){
-  return  origialCartArray.map(
-    origialArray => origialArray.id === payloadCartItem.id
-    ? {...origialArray, quantity: origialArray.quantity + 1}
-    : origialArray
-   )
+  if(originalArrayId){
+    return originalCartArray.map(originalArray => 
+      originalArray.id === payloadCartItem.id
+      ? {...originalArray, quantity: originalArray.quantity + 1}
+      : originalArray
+      )
   }
-
-  return [...origialCartArray, {...payloadCartItem, quantity: 1}]
+  return [...originalCartArray, {...payloadCartItem, quantity: 1}]
  }
 
  export default addItemsToCart;
