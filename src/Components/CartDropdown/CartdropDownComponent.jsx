@@ -3,6 +3,7 @@ import CustomButton from "../CustomButton/CustomButtonComponent";
 import "./CartdropDownStyles.scss";
 import CartItems from "../CartItems/CartItemsComponent"
 import {connect} from "react-redux"
+import {cartCollectionItems} from "../../Redux/CartToggle/cartReselect";
 
 function CartdropDown({collections}) {
  return (
@@ -17,8 +18,8 @@ function CartdropDown({collections}) {
  )
 }
 
-const mapStateToProps = ({cart: {collections}}) => ({
-  collections
+const mapStateToProps = state => ({
+  collections : cartCollectionItems(state)
 })
 
 export default connect(mapStateToProps)(CartdropDown);

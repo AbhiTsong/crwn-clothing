@@ -7,7 +7,7 @@ export default function CartItems({collection:{imageUrl, name, price, quantity}}
     <img src = {imageUrl} alt="items"/>
     <div className="item-details">
        <span className="name"> {name} </span>
-       <span className="name"> {quantity} * ${price} </span>
+       <span className="name"> {quantity} x ${price} </span>
     </div>
   </div>
  )
