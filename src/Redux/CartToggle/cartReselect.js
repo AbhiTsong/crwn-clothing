@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect'
 
-const cartCollection = state => state.cart
+export const cartCollection = state => state.cart
 
 export const cartCollectionItems =  createSelector(
  [cartCollection],
@@ -14,9 +14,9 @@ export const cartHiddenState = createSelector(
 
 export const cartCollectionCount = createSelector(
  [cartCollectionItems],
- collections => collections.reduce(
+ collection => collection.reduce(
   (accululatedQuantity, cartItem) => 
-  accululatedQuantity + cartItem.quantity, 0)
+ ( accululatedQuantity + cartItem.quantity), 0)
 )
 
 export const cartCollectionTotal = createSelector(
