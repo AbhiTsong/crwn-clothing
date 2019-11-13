@@ -23,7 +23,7 @@ function HeaderComponent({currentUser, hidden}) {
        <Link className="option" to="/shop">CONTACT</Link>
        {
          currentUser
-         ? <Link className="option" to="/signIn" onClick={() => auth.signOut()}>SIGN OUT</Link>
+         ? <div className="option" onClick={() => auth.signOut()}>SIGN OUT</div>
          : <Link className="option" to="/signIn">SIGN IN</Link>
        }
        <CartIconComponent/>

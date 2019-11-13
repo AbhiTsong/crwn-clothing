@@ -5,8 +5,8 @@ import {addItem} from "../../Redux/CartToggle/CartToggleAction"
 import {connect} from "react-redux"
 
 
-function CollectionComponent({menu, addItems}) {
-  const {id, name, imageUrl, price} = menu;
+const CollectionItems = ({menu, addItems}) => {
+  const {name, imageUrl, price} = menu;
  return (
   <div className="collection-item ">
    <div
@@ -15,7 +15,7 @@ function CollectionComponent({menu, addItems}) {
     }}
     className="image"
    />
-   <div key={id} className="collection-footer">
+   <div className="collection-footer">
      <p className="name">{name}</p>
      <p className="price">{price}</p>
    </div>
@@ -30,4 +30,4 @@ const mapDispatchToProps = dispatch => ({
   addItems: item => dispatch(addItem(item))
 })
 
-export default connect(null, mapDispatchToProps)(CollectionComponent);
+export default connect(null, mapDispatchToProps)(CollectionItems);

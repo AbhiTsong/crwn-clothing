@@ -6,8 +6,8 @@ import "./SignInAndSignUpStyles.scss"
 export default function SignInAndSignUpComponent() {
  return (
   <div className="sign-in-and-sign-up">
-   <SignInComponent/>
-   <SignUp/>
+    <SignInComponent/>
+    <SignUp/>
   </div>
  )
 }

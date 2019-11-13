@@ -1,6 +1,6 @@
 import React from 'react';
 import "./PreviewStyles.scss"
-import CollectionComponent from "../Collections/CollectionComponent"
+import CollectionItems from "../CollectionItems/CollectionItems"
 
 export default function PreviewComponent({items, title}) {
  return (
@@ -9,8 +9,8 @@ export default function PreviewComponent({items, title}) {
    <div className="preview">
    {items.filter(
      (item, index) => index < 4)
-      .map((menu) => 
-      {return(<CollectionComponent key={menu.id} menu={menu}/>)})
+      .map(menu => 
+      {return(<CollectionItems key={menu.id} menu={menu}/>)})
    }
     </div>
   </div>
