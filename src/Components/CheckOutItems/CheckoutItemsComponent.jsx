@@ -19,6 +19,7 @@ function CheckoutItems({cartItems, cartItemToRemove, addItem, removeItem}) {
     </div>
     <div className="price">{ price }</div>
     <span className="remove-button" onClick={() => cartItemToRemove(cartItems)}>&#10005;</span>
+   
   </div>
  )
 }

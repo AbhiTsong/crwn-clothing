@@ -10,24 +10,25 @@ import {connect} from "react-redux";
 import {setCurrentUser} from "./Redux/users/userAction";
 import checkOutPage from "./Pages/CheckOutPage/checkOutPage"
 import {createStructuredSelector} from "reselect"
+import {currentUserState} from "./Redux/users/userSelector"
 
 class App extends React.Component {
  
   unsubscribeFromAuth = null;
 
   componentDidMount(){
-    const {set} = this.props;
+    const {setU} = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if(userAuth){
         const userRef = await createUserProfileDoc(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          set({id: snapShot.id,
+          setU({id: snapShot.id,
               ...snapShot.data()
-            })
-        })
+            });
+        });
       }
-      set(userAuth)
+      setU(userAuth)
     })
   }
   
@@ -43,7 +44,6 @@ class App extends React.Component {
         <Route exact path="/" component={HomePage}/>
         <Route  path="/shop" component={ShopPage}/>
         <Route  path="/checkout" component={checkOutPage}/>
-
         <Route exact path="/signIn" 
         render={() => this.props.currentUser 
         ? (<Redirect to="/"/>) 
@@ -55,11 +55,11 @@ class App extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  set: user => dispatch(setCurrentUser(user))
+  setU: user => dispatch(setCurrentUser(user))
 })
 
 const mapStateToProps = createStructuredSelector({
-  currentUser : setCurrentUser
+  currentUser: currentUserState
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
